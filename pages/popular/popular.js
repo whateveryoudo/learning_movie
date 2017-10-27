@@ -3,14 +3,14 @@
  */
 const config = require('../../config/config');
 const app = getApp();
-
-console.log(config.bannerList);
+import {getDoubanFilms} from '../../service/getData'
 Page({
     data : {
         bannerList : config.bannerList,
-        showLoading : true
+        showLoading : true,
+        start : 0
     },
-    onload(){
+    onLoad(){
         const that = this;
         //设置顶部barloading状态
         wx.showNavigationBarLoading();
@@ -20,6 +20,13 @@ Page({
             wx.setNavgationBarTtile({
                 title : '正在热映 - ' + res.city
             })
+            getDoubanFilms({//处理影片列表
+                start : that.start
+            },optFilms)
+
         })
+        function optFilms(res){
+            console.log(111);
+        }
     }
 })

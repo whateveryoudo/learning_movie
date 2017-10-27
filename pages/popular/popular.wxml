@@ -1,3 +1,6 @@
+<!--引入toast组件-->
+<import  src="../../components/Toast/Toast.wxml"/>
+<template is="toast" data="{{...$wux.toast}}"></template>
 <block>
     <view class="search_bar">
         <input type="text" placeholder-class="search-txt-plc" class="search_txt" placeholder="请输入关键词搜索" />
@@ -12,5 +15,5 @@
 </block>
 
 <!--影片列表-->
-<import src="../../components/filmList/filmList.wxml"/>
-<template is="filmList" />
+<!--<import src="../../components/filmList/filmList.wxml"/>-->
+<!--<template is="filmList" />-->

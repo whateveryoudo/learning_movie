@@ -71,6 +71,42 @@ class Component{
                 }
             }
         }
+        //将数据同步到page.data上方便选渲染
+        this.page.setData({
+            [`${scope}`] : this._data
+        })
+    }
+    //绑定组件事件函数
+    __initMethods(){
+        const scope = this.options.scope,
+            methods = this.options.methods;
+
+        //筛选函数类型
+        if(!this.isEmptyObject(methods)){
+            for(let key in methods){
+                if(methods.hasOwnProperty(key) && typeof methods[key] === 'function'){
+                    this[key] = methods[key] = methods[key].bind(this);
+
+                    //将methods方法挂载到当前page对象上,否则template找不到方法
+                    this.page[`${scope}.${key}`] = methods[key];
+
+                    //将方法名字同步到data中
+                    this.setData({
+                        [`${scope}.${key}`] : `${scope}.${key}`
+                    })
+                }
+            }
+        }
+    }
+    /*****获取组件的data数据*****/
+    getComponentData(){
+        let  data = this.page.data;
+        let name = this.options.scope && this.options.scope.split('.');
+        name.forEach((n,i) => {
+            data = data[n];
+        })
+
+        return data;
     }
     //判断对象是否为空
     isEmptyObject(e){
@@ -78,6 +114,37 @@ class Component{
             return !1;
         }
         return !0;
+    }
+
+    /*
+     * @name
+     * @param
+     * @description 设置元素的显示
+     */
+    setVisible (className = `weui-animate-fade-in`,timer = 300){
+        this.setData({
+            [`${this.options.scope}.animateCss`] : className
+        })
+        setTimeout(() => {
+            this.setData({
+                [`${this.options.scope}.visible`] : !0
+            })
+        },timer);
+    }
+    /*
+     * @name
+     * @param
+     * @description 设置元素的隐藏
+     */
+    setHidden(className = `weui-animate-fade-out`,timer = 300){
+        this.setData({
+            [`${this.options.scope}.animateCss`] : className
+        })
+        setTimeout(() => {
+            this.setData({
+                [`${this.options.scope}.visible`] : !1
+            })
+        },timer)
     }
 }
 

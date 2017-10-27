@@ -7,9 +7,10 @@
 		"minified": true
 	},
 	"compileType": "weapp",
-	"libVersion": "1.5.4",
+	"libVersion": "1.6.0",
 	"appid": "touristappid",
-	"projectname": "learning_movie_demo",
+	"projectname": "learn_movie",
+	"condition": {
 		"weapp": {
 			"current": -1,
 			"list": []

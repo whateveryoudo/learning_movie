@@ -5,7 +5,8 @@ page{
     background-color: #fff;
     font-family: '微软雅黑';
 }
-
+/*引入组件样式集*/
+@import "./components/wux.wxss";
 /*loading样式*/
 .loading{
     position: fixed;
