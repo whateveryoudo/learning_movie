@@ -1,4 +1,4 @@
-
+@import "../../components/filmList/filmList.wxss";
 
 /*搜索框样式*/
 .search_bar{
@@ -10,6 +10,8 @@
     height:80rpx;
     padding:10rpx;
     text-align: center;
+    z-index:20;
+    background-color: #fff;
     box-shadow: 0 10rpx 60rpx rgba(0,0,0,.3);
 }
 .search-txt-plc{

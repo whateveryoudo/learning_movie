@@ -5,6 +5,7 @@
 const url = 'https://static.sesine.com/wechat-weapp-movie';//图片地址前缀
 const data = {
     baiduAK: 'Y1R5guY8Y2GNRdDpLz7SUeM3QgADAXec',
+    count: 20,
     bannerList: [
         {type:'film', id: '26683290', imgUrl: url + '/images/banner_1.jpg'},
         {type:'film', id: '25793398', imgUrl: url + '/images/banner_2.jpg'},

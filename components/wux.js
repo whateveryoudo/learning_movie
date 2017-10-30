@@ -3,7 +3,9 @@
  */
 //组件整体输出
 import $wuxToast from './Toast/Toast'
+import $wuxLoading from './Loading/Loading'
 
 export {
-    $wuxToast
+    $wuxToast,
+    $wuxLoading
 }

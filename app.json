@@ -1,6 +1,7 @@
 {
   "pages" : [
-    "pages/popular/popular"
+    "pages/popular/popular",
+    "pages/filmDetail/filmDetail"
   ],
   "window" : {
     "navigationBarBackgroundColor": "#47a86c",
