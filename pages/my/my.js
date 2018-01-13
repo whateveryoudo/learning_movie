@@ -75,36 +75,5 @@ Page({
                 count : config.count
             }
         },that.optFilms)
-    },
-    /*
-     * @name bannerDetail
-     * @param 
-     * @description 跳转banner详细页面(search不知道)
-     */
-    viewBannerDetail : function (e) {
-        //获取轮播类型
-        let data = e.currentTarget.dataset;
-        switch (data.type) {
-            case 'film':
-                wx.navigateTo({
-                    url: '../filmDetail/filmDetail?id=' + data.id
-                })
-                break;
-            case 'person':
-                wx.navigateTo({
-                    url: '../personDetail/personDetail?id=' + data.id
-                })
-                break;
-        }
-    },
-    /*
-     * @name search
-     * @param
-     * @description 跳转搜索影片页面
-     */
-    viewSearch : function () {
-        wx.navigateTo({
-            url : '../search/search'
-        })
     }
 })

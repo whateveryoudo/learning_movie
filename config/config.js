@@ -13,6 +13,7 @@ const data = {
         {type:'film', id: '26415200', imgUrl: url + '/images/banner_4.jpg'},
         {type:'film', id: '3025375', imgUrl: url + '/images/banner_5.jpg'}
     ],
+    //
     apiList : {//api列表
         popular: 'https://api.douban.com/v2/movie/in_theaters',
         coming: 'https://api.douban.com/v2/movie/coming_soon',
@@ -24,7 +25,9 @@ const data = {
         filmDetail: 'https://api.douban.com/v2/movie/subject/',
         personDetail: 'https://api.douban.com/v2/movie/celebrity/',
         baiduMap: 'https://api.map.baidu.com/geocoder/v2/'
-    }
+    },
+    hotKeyword: ['功夫熊猫', '烈日灼心', '摆渡人', '长城', '我不是潘金莲', '这个杀手不太冷', '驴得水', '海贼王之黄金城', '西游伏妖片', '我在故宫修文物', '你的名字'],
+    hotTag: ['动作', '喜剧', '爱情', '悬疑']
 }
 
 module.exports = data;

@@ -1,5 +1,7 @@
 {
-
+  "usingComponents" : {
+    "search-null" : "../../components/SearchNull/SearchNull"
+  },
   "pages" : [
     "pages/popular/popular"
   ],

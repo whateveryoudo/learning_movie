@@ -112,5 +112,13 @@ Page({
             })
           } 
         });
+    },
+    /*
+     * @name onPullDownRefresh
+     * @param
+     * @description 下拉刷新
+     */
+    onPullDownRefresh : function () {
+        this.onLoad();
     }
 })
