@@ -7,6 +7,6 @@
             <view class="null_btn">{{nullObj.actionText}}</view>
         </block>
         <block wx:else>
-            <navigator url="{{backUrl}}">{{nullObj.actionText}}</navigator>
+            <navigator class="null_btn" url="{{nullObj.backUrl}}">{{nullObj.actionText}}</navigator>
         </block>
     </view>

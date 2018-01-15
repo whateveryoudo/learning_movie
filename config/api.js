@@ -9,26 +9,26 @@ export default (url,paramsList = {},cb,failCb) => {
         type = paramsList.type || 'GET',
         data = paramsList.data || {},
         isLoading = typeof paramsList.isLoading == 'boolean' ? paramsList.isLoading : true;
-        type == 'GET' && function(){//get 拼接参数(微信自己会拼接参数)
-            let paramStr = '';
-            if(paramsList.isRestful){
-                Object.keys(data).forEach(key => {
-                    paramStr += data[key];
-                })
-                url = url + paramStr;
-                data = {};//清空参数
-            }else{
-                Object.keys(data).forEach(key => {
-                    paramStr += key + '=' + data[key] +'&';
-                })
-                if(paramStr !== ''){//凭借到url后面
-                    paramStr = paramStr.substr(0,paramStr.lastIndexOf('&'));
-                    url = url + '?' + paramStr;
-                }
-            }
-
-        }();
-    if(isLoading){
+        // type == 'GET' && function(){//get 拼接参数(微信自己会拼接参数)
+        //     let paramStr = '';
+        //     if(paramsList.isRestful){
+        //         Object.keys(data).forEach(key => {
+        //             paramStr += data[key];
+        //         })
+        //         url = url + paramStr;
+        //         data = {};//清空参数
+        //     }else{
+        //         Object.keys(data).forEach(key => {
+        //             paramStr += key + '=' + data[key] +'&';
+        //         })
+        //         if(paramStr !== ''){//凭借到url后面
+        //             paramStr = paramStr.substr(0,paramStr.lastIndexOf('&'));
+        //             url = url + '?' + paramStr;
+        //         }
+        //     }
+        //
+        // }();
+    if(!isLoading){
         //调用自定义loading组件
         $wuxLoading.show();
     }

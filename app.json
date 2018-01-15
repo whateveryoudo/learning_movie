@@ -1,8 +1,8 @@
 {
   "pages" : [
+    "pages/popular/popular",
     "pages/searchResult/searchResult",
     "pages/search/search",
-    "pages/popular/popular",
     "pages/filmDetail/filmDetail",
     "pages/coming/coming",
     "pages/top/top",
