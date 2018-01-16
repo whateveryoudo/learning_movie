@@ -18,13 +18,13 @@
         <view class="search_keyword_con">
             <view class="s_k_wrapper">
                 <view class="s_k_label">热门搜索</view>
-                <view class="s_k_item" data-keyword="{{hotKeywordItem}}" bindtap="searchByKeyword" wx:for="{{hotKeyword}}" wx:for-item="hotKeywordItem" wx:key="hotKeywordItem">
+                <view class="s_k_item" data-type="keyword" data-keyword="{{hotKeywordItem}}" bindtap="searchByWay" wx:for="{{hotKeyword}}" wx:for-item="hotKeywordItem" wx:key="hotKeywordItem">
                     {{hotKeywordItem}}
                 </view>
             </view>
             <view class="s_k_wrapper">
                 <view class="s_k_label">热门标签</view>
-                <view class="s_k_item" bindtap="searchByTag" wx:for="{{hotTag}}" wx:for-item="hotTagItem" wx:key="hotTagItem">
+                <view class="s_k_item" data-type="tag" bindtap="searchByWay" wx:for="{{hotTag}}" wx:for-item="hotTagItem" wx:key="hotTagItem">
                     {{hotTagItem}}
                 </view>
             </view>

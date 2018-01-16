@@ -3,10 +3,38 @@
  */
 const config = require('./config/config');
 import {getLocation} from 'service/getData'
+import {initStorageData} from './util/storageInitData'
 App({
-    onLaunch(){
+    globalData : {
+        userInfo : null
+    },
+    onLoad(){
+        //获取用户信息
+        this.getUserInfo();
         //初始化缓存信息
         this.initStorage();
+    },
+    /*
+     * @name getUserInfo
+     * @param
+     * @description 获取用户信息
+     */
+    getUserInfo(cb){
+        wx.login({
+            success : res => {
+                wx.getUserInfo({
+                    success : res => {
+                        this.globalData.userInfo = res.userInfo;
+                        //存入本地存储中
+                        wx.setStorage({
+                          key : "userInfo",
+                          data : res.userInfo
+                        });
+                        typeof cb === 'function' && cb(res.userInfo);
+                    }
+                })
+            }
+        })
     },
     initStorage(){
         //添加数组中是否包含某个元素的方法
@@ -16,17 +44,24 @@ App({
             }
             return false;
         }
-        wx.getStorageInfo({
-          success: res => {
-            //判断电影收藏是否存在,没有则初始化
-              !(res.keys.contains('film_favorite')) && function(){
-                  wx.setStorage({
-                      key : 'film_favorite',
-                      data : []
-                  })
-              }()
-          } 
-        });
+
+        //初始化所有存储默认值
+        initStorageData.forEach(item => {
+            let {key,data} = item;
+            key && (() => {
+                wx.getStorageInfo({
+                    success: res => {
+                        !(res.keys.contains[key]) && (() => {
+                            wx.setStorage({
+                                key,
+                                data
+                            })
+                        })()
+                    }
+                });
+            })()
+        })
+
     },
     getCity(cb){
         const that = this;

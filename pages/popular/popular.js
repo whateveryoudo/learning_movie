@@ -17,14 +17,6 @@ Page({
         //设置顶部barloading状态
         wx.showNavigationBarLoading();
         //获取当前城市
-        getDoubanFilms({
-            data :{//处理影片列表
-                city : '成都',
-                start : that.data.start,
-                count : config.count
-            }
-        },that.optFilms)
-        return;
         app.getCity((city) => {
             //存入config全局变量中
             city && (config.city = city);
@@ -32,11 +24,16 @@ Page({
             wx.setNavigationBarTitle({
                 title : '正在热映 - ' + city
             })
-
+            getDoubanFilms({
+                data :{//处理影片列表
+                    city : config.city,
+                    start : that.data.start,
+                    count : config.count
+                }
+            },that.optFilms)
         })
     },
     optFilms : function(res){//处理列表
-        debugger;
         let that = this,filmsData = res.subjects;
         if(filmsData.length == 0){
             that.setData({

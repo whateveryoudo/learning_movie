@@ -1,22 +1,31 @@
-<!--引入toast组件-->
-<import  src="../../components/Toast/Toast.wxml"/>
-<template is="toast" data="{{...$wux.toast}}"></template>
-<!--引入loading组件-->
-<import  src="../../components/Loading/Loading.wxml"/>
-<template is="loading" data="{{...$wux.loading}}"></template>
-<block >
-        <view class="search_bar">
-            <input type="text" placeholder-class="search-txt-plc" class="search_txt" placeholder="请输入关键词搜索" />
+<view class="container">
+    <block>
+        <view class="user_info" style="background-image: url({{avatarSkin}})">
+            <view>
+                <image class="u_i_avatar" src="{{userInfo.avatarUrl}}"></image>
+            </view>
+            <!--昵称性别图标-->
+            <view class="u_i_word_con">
+                <text class="u_i_nickName">{{userInfo.nickName}}</text>
+                <!--男性-->
+                <view class="sex_icon u_i_gentleman" wx:if="{{userInfo.gender == 1}}"></view>
+                <view class="sex_icon u_i_madam" wx:elif="{{userInfo.gender == 2}}"></view>
+                <!--女性-->
+            </view>
+            <!--换肤图标-->
+            <view class="change_skin_icon"></view>
         </view>
-        <swiper class="banner" indicator-dots='true'>
-            <block wx:for="{{bannerList}}" wx:for-item="bannerItem" wx:for-index="bannerIndex" wx:key="banner">
-                <swiper-item data-type="{{bannerItem.type}}" data-id="{{bannerItem.id}}">
-                    <image src="{{bannerItem.imgUrl}}" class="banner_item" alt=""></image>
-                </swiper-item>
-            </block>
-        </swiper>
-</block>
 
-<!--影片列表-->
-<import src="../../components/filmList/filmList.wxml"/>
-<template is="filmList" data="{{films,hasMore}}"/>
+    </block>
+    <block>
+        <!--内容区-->
+        <view class="grid_wrapper">
+            <view class="g_w_item" wx:for="{{gridDataList}}" wx:for-item="gridItem" wx:key="name">
+                <view class="g_w_item_img">
+                    <image src="{{gridItem.imgUrl}}"></image>
+                </view>
+                <view class="g_w_item_des">{{gridItem.name}}</view>
+            </view>
+        </view>
+    </block>
+</view>

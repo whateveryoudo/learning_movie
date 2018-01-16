@@ -1,12 +1,12 @@
 {
   "pages" : [
+    "pages/my/my",
     "pages/popular/popular",
     "pages/searchResult/searchResult",
     "pages/search/search",
     "pages/filmDetail/filmDetail",
     "pages/coming/coming",
-    "pages/top/top",
-    "pages/my/my"
+    "pages/top/top"
   ],
   "window" : {
     "navigationBarBackgroundColor": "#47a86c",

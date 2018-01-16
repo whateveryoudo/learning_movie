@@ -33,6 +33,9 @@ Page({
           }
         })
     },
+    onLoad(){
+        console.log(this);
+    },
     /*
      * @name
      * @param
@@ -55,15 +58,15 @@ Page({
         })
     },
     /*
-     * @name searchByKeyword
+     * @name searchByWay
      * @param
-     * @description  根据关键字搜索
+     * @description  根据标签或者关键字搜索
      */
-    searchByKeyword : function (e) {
+    searchByWay : function (e) {
         let data = e.currentTarget.dataset;
         let keyword = data.keyword;
         wx.redirectTo({
-          url: '../searchResult/searchResult?type=' +this.data.searchType + '&keyword=' + keyword
+          url: '../searchResult/searchResult?type=' + data.type + '&keyword=' + keyword
         })
 
 
