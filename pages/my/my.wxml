@@ -20,12 +20,15 @@
     <block>
         <!--内容区-->
         <view class="grid_wrapper">
-            <view class="g_w_item" wx:for="{{gridDataList}}" wx:for-item="gridItem" wx:key="name">
-                <view class="g_w_item_img">
-                    <image src="{{gridItem.imgUrl}}"></image>
+            <block wx:for="{{gridDataList}}"  wx:for-item="gridItem" wx:key="name">
+                <view class="g_w_item" data-url="{{gridItem.linkUrl}}" bindtap="toGridDetail">
+                    <view class="g_w_item_img">
+                        <image src="{{gridItem.imgUrl}}"></image>
+                    </view>
+                    <view class="g_w_item_des">{{gridItem.name}}</view>
                 </view>
-                <view class="g_w_item_des">{{gridItem.name}}</view>
-            </view>
+            </block>
+
         </view>
     </block>
 </view>

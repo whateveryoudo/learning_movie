@@ -60,7 +60,8 @@ icon {
   -webkit-align-items: center;
           align-items: center;
 }
-.weui-cell:before {
+/*before无效*/
+.weui-cell:after {
   content: " ";
   position: absolute;
   left: 0;
@@ -98,7 +99,11 @@ icon {
   padding-right: 13px;
   position: relative;
 }
-.weui-cell__ft_in-access:after {
+.weui-cell_access .weui-cell__ft{
+  padding-right:13px;
+  position:relative;
+}
+.weui-cell__ft:after,.weui-cell__ft_in-access:after {
   content: " ";
   display: inline-block;
   height: 6px;

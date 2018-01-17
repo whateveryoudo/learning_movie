@@ -35,45 +35,17 @@ Page({
         ]
     },
     onLoad(){
-        //获取用户信息
-        if(app.globalData.userInfo){
-            this.setData({
-                userInfo:app.globalData.userInfo
-            })
-        }else{
-            app.getUserInfo(res => {
-                this.setData({
-                    userInfo:res
-                })
-            });
-        }
-    },
-    onShow(){
-        //获取本地存储背景图
-        wx.getStorage({
-          key: 'avatarSkin',
-          success: res => {
-              let _avatarSkin = res.data || config.skinList[0].imgUrl;
-              this.setData({
-                  avatarSkin : _avatarSkin
-              })
-          },
-            fail : res => {
-            }
-        });
     },
     /*
-     * @name toGridDetail
+     * @name handleOpt
      * @param
-     * @description 跳转选择详情
+     * @description 跳转不同页面
      */
-    toGridDetail(e){
-        let targetUrl = e.currentTarget.dataset.url;
-        if(!targetUrl){
-            return;
-        }
+    handleOpt({detail}){
+        let targetUrl = detail.url;
         wx.navigateTo({
           url: targetUrl
         })
     }
+
 })
